@@ -1,0 +1,24 @@
+js
+...........array function
+1..to add in first of array
+arrayName.unshift('value1', 'value2');
+2..to add in last of array
+arrayName.push('value1', 'value2');
+3..to delete the first element from array
+arrayName.shift();
+4..to delete the first element from array and save this value that deleted in variable 
+let variableDeleted = arrayName.shift();
+5..if you want put variable in string
+console.log(' any string ${variable} ');
+6..to delete the last element from array and save this value that deleted in variable 
+let variableDeleted = arrayName.pop();
+.............js searching...
+1..video link
+https://www.youtube.com/watch?v=ss75DBXkZ4Y&list=PLDoPjvoNmBAx3kiplQR_oeDqLDBUDYwVv&index=43&ab_channel=ElzeroWebSchool
+2..search of number of first index of value start search from start of array
+arrayName.indexOf('value',number of index that will start search from it);
+3..search of number of last index of value start search from end of array
+arrayName.lsdtIndexOf('value',-number of index that will start search from it;will count from last becous this -);
+
+
+

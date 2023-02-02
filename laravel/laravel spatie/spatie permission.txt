@@ -1,0 +1,73 @@
+1..video link
+https://www.youtube.com/watch?v=H6ymYOM8gzU&t=2s&ab_channel=MoraSoft
+1.1..github of project for this video
+https://github.com/Samir-Gamal/Invoices_Project
+2..doc link
+https://spatie.be/docs/laravel-permission/v5/introduction
+3..to make permition you have spatie and laratust we will use spatie
+4..doc will we use link
+https://docs.laravelmodules.com/v9/spatie-laravel-permission
+5..spatie install permission
+composer require spatie/laravel-permission
+composer require laravelcollective/html
+5.1..go to config\app.php->provider if not added
+spati\Permission\PermissionServiceProvider::class,
+Collective\Html\HtmlServiceProvider::class,
+5.1.1..go to alieses
+'Form' => Collective\Html\FormFacade::class,
+'Html' => Collective\Html\HtmlFacade::class,
+5.2..publish provider to publish permission file in config
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+5.3..to add spatie migration files
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProveidrer" --tag="migraions"
+5.4..migrate db
+php artisan migrate
+5.5..go to user model and add this
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasRoles;
+5.6..go to kernal->routMidddleware //to add middleware of backage
+'role' => \spatie\Permission\Middlewares\RoleMiddleWare::class,
+'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+5.7..install laravel auth of laravel
+composer require laravel/ui 
+5.8..assuative auth from which front
+5.8.1..if use auth with bootstrab
+php artisan ui bootstrab --auth
+5.8.2..if use auth with vue
+php artisan ui vue --auth
+5.8.3..if use auth with react
+php artisan ui react --auth
+5.9..install pm if you not install it and download nodejs if you not make this
+npm install
+npm run dev
+5.10..create route
+5.10.1..go to web.php or api.php
+Route::groub(['middleware' => ['auth'] ], function(){
+Route::resource('role','roleController');//when go to role will go to backage that  added in middleware of kernal that name roul
+Route::resource('users','UserController');
+Route::resource('products','ProductController');
+
+});
+6..add Usercontroller
+php artisan make:controller UserController
+7..create RoleController for defined role of each user
+php artisan make:controller Spatie\RoleController 
+7.1..add all functions in rolecontroller
+8..run this permission seeder
+php artisan make:seeder PermissionTableSeeder
+8.1..go to permission seeder and add your primition
+8.2..make adminUser seeder to create admin and user will created after seed to login
+php artisan make:seeder CreateAdminUserSeeder
+8.3..you can delete data base and create it again by this
+php artisan migrate:fresh
+8.4..seed permission must be first befor seed createadminUser
+php artisan db:seed --class=PermissionTableSeeder
+8.5..
+php artisan db:seed --class=CreateAdminUserSeeder
+
+
+

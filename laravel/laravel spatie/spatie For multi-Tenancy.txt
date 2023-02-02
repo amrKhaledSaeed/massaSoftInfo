@@ -1,0 +1,17 @@
+**video link
+  https://www.youtube.com/watch?v=osuwOXqutd0&ab_channel=ProfessionalCode
+1..spatie link
+ https://spatie.be/docs/laravel-multitenancy/v3/installation/base-installation
+2..install backage
+ composer require "spatie/laravel-multitenancy:^3.0"
+3..publish
+php artisan vendor:publish --provider="Spatie\Multitenancy\MultitenancyServiceProvider" --tag="multitenancy-config"
+4..go to multiTenancy.php->tenant_finder add to defind the host to devided operations
+DomainTenantFinder::class
+4.1.. go to switch_tenant_tasks and add to make multy domain
+switchTenantDatabaseTask::class
+5..from doc\multDatabase run this to create landloard in migration that have table tenants that will have the personal 
+php artisan vendor:publish --provider="Spatie\Multitenancy\MultitenancyServiceProvider" --tag="multitenancy-migrations"
+6..go to create landlord DB in phpMyadmin
+7..go to migrate only landlord
+php artisan migrate --path=database/migrations/landlord --database=landlord

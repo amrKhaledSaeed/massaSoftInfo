@@ -1,0 +1,11 @@
+1..Multitenancy system  //will use single doma and another domain will be uub domain
+2..laravel spati
+3..save activety log of spati or another
+4..sanctom for auth
+5..permation role
+7..localization
+8..will use higry data and milady date
+9..data table will be sorte py user
+9.1..datatables.net
+9.1.1..doc of it
+https://yajrabox.com/docs/laravel-datatables/10.0
