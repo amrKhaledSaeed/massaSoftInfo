@@ -15,3 +15,9 @@ https://yajrabox.com/docs/laravel-datatables/10.0
 https://www.youtube.com/watch?v=BuZn7Xyyz8o
 7.2..doc
 https://github.com/mcamara/laravel-localization
+....
+3..activity log
+3.1..video
+https://www.youtube.com/watch?v=XWFXikdTFcw
+3.2..doc to install
+https://spatie.be/docs/laravel-activitylog/v3/introduction
