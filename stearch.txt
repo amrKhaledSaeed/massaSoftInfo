@@ -9,3 +9,9 @@
 9.1..datatables.net
 9.1.1..doc of it
 https://yajrabox.com/docs/laravel-datatables/10.0
+.......................matrial
+7..localization
+7.1..video
+https://www.youtube.com/watch?v=BuZn7Xyyz8o
+7.2..doc
+https://github.com/mcamara/laravel-localization
