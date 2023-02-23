@@ -9,3 +9,27 @@
 9.1..datatables.net
 9.1.1..doc of it
 https://yajrabox.com/docs/laravel-datatables/10.0
+.......................matrial
+7..localization
+7.1..video
+https://www.youtube.com/watch?v=BuZn7Xyyz8o
+7.2..doc
+https://github.com/mcamara/laravel-localization
+8..save error exciption and handel it for user :mean error for server not like error auth
+9..work if electric of
+....
+3..activity log
+3.1..video
+https://www.youtube.com/watch?v=XWFXikdTFcw
+3.2..doc to install
+https://spatie.be/docs/laravel-activitylog/v3/introduction
+
+
+........................htoel management info
+1..front of system
+1.1..reseption
+1.1.1....sell roms
+1.1.1.1..rome type -> mean how number can use it    
+1..search ...rome rate
+2..search for date of hotel
+3..search opera oracle system hotel manegment  

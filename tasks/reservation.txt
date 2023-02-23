@@ -1,0 +1,5 @@
+1...if com from reservition controller Is_reservation =true in store or update
+2..checkIn function update Is_reservation to false and res_status = CHK is_check_in = true
+3..function cancel reservation is_cancel = true res_status=cnc
+4..function reInstate is_cancel = false res_status=CNF
+5..add filde coulmn ref_no , is_online bool string max=50 in guest Table  

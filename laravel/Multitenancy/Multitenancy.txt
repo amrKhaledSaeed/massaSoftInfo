@@ -1,0 +1,39 @@
+1..video
+https://www.youtube.com/watch?v=hCw1hqnVAjw&list=PLf5ATZslqO1fCeWclli2zOJx5mcVua6Yi&ab_channel=Let%27sLaravel
+2..
+...................functions
+1..to get hostName
+$request->getHost();
+2..to get DB connection info
+DB::connection();
+3.. to check the host in array of not
+$array = [
+$request->getHost() => 'DBNAme1';
+$request->getHost() => 'DBNAme 2';
+];
+$host = $request->getHost;//will get hostName
+$keys = array_keys($array); //to can get the key and value of $array
+if(in_array($host,$key)){ //
+	$db = $array[$host]; //will get DBName of host
+	DB::purge('mysql'); // to delete db connection with mysql DB
+	//go to config\database.php->mysql and make this empty like this  'database' =>'', // to not get DBName from env
+	Config::set('database.connections.mysql.database',$db) //Config::set('the file in config called database.connections that it in file',$db: is the database that it com from host)
+	DB::reconnect('mysql');// to make reconnect with my sql 
+}
+3..will go to config\database->'mysql'
+copy 'mysql' and past it and make the first is name 'system' and and make it have dbNAme from env as defult
+3.1..to migrate the DB in systenm only
+php artisan migrate --path=database/migrations/system/ --database=system
+4..DB::connection('tenant')->reconnect();//to change DB and reconnect
+5..DB::asDfaultConnection('DBName');//to make this DB as default
+..........DB info
+1..in env
+DB_CONNECTION=mysql //will go to config\database.php->mysql
+DB_HOST=127.0.0.1 //host of db
+DB_PORT=3306 //port 
+DB_DATABASE=massasoft_first DB Name
+DB_USERNAME=root
+DB_PASSWORD=
+
+2..config\database.php->mysql
+  

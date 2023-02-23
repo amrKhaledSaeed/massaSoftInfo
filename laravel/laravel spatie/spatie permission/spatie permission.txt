@@ -53,4 +53,23 @@ Route::resource('products','ProductController');
 6..add Usercontroller
 php artisan make:controller UserController
 
-
+.............................................................role and permission uses
+document is
+https://medium.com/@parthpatel0516/laravel-multi-auth-using-guards-and-spatie-permission-with-example-api-authentication-4d5376f60d76
+1..You can assign the role to a user like this:
+$user = User::findOrFail($id);
+$user->assignRole(['admin']);
+2..You can also get the permissions associated with a user like this:
+$permissions = $user->permissions;
+3..And using the pluck method, pluck() you can get the role names associated with a user like this
+$roles = $user->roles()->pluck('name');
+4..some uses functions
+givePermissionTo(): Allows us to give permission to a user or role
+revokePermissionTo(): Revoke permission from a user or role
+hasPermissionTo(): Check if a user or role has a given permission
+assignRole(): Assigns role to a user
+removeRole(): Removes role from a user
+hasRole(): Checks if a user has a role
+hasAnyRole(Role::all()): Checks if a user has any of a given list of roles
+hasAllRoles(Role::all()): Checks if a user has all of a given list of role
+5..

@@ -1,0 +1,3 @@
+1..github backage for it
+https://github.com/lucasdotvin/laravel-soulbscription
+2..plan model use soft delete
