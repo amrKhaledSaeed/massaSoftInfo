@@ -15,13 +15,17 @@ https://yajrabox.com/docs/laravel-datatables/10.0
 https://www.youtube.com/watch?v=BuZn7Xyyz8o
 7.2..doc
 https://github.com/mcamara/laravel-localization
+<<<<<<< HEAD
 8..save error exciption and handel it for user :mean error for server not like error auth
 9..work if electric of
+=======
+
 ....
 3..activity log
 3.1..video
 https://www.youtube.com/watch?v=XWFXikdTFcw
 3.2..doc to install
+
 https://spatie.be/docs/laravel-activitylog/v3/introduction
 
 
@@ -33,3 +37,5 @@ https://spatie.be/docs/laravel-activitylog/v3/introduction
 1..search ...rome rate
 2..search for date of hotel
 3..search opera oracle system hotel manegment  
+=======
+https://spatie.be/docs/laravel-activitylog/v3/introduction
