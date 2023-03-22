@@ -1,0 +1,15 @@
+1..add pivote table integrate with Guest table and transaction table
+2..migrate is
+guest_id
+windwo_number
+windo name
+invoicenumber
+3..wher crate guest will crate recourd for window one
+4..in guest controlle
+4.1..function add new windo
+4.1.1..if guest has more than one window 
+guestid  windo id
+.....................
+in guestController get get windows of guest by guest_id
+	
+		

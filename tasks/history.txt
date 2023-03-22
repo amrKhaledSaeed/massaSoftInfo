@@ -1,0 +1,10 @@
+history
+..table transaction and table guest ..copy called
+1.transcation_out , guest_out , window_out
+2..guest_out move from guest to guest_out 
+3..after model and migration make to day_close_controler 
+4....transaction 
+make table called transaction_outs + model 
+copy from transaction to out and delete from transaction
+and transaction taxes
+in controller dayclose

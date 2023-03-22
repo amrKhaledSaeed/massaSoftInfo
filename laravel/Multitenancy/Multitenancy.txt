@@ -36,4 +36,5 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 2..config\database.php->mysql
-  
+  3..migration of landlord
+php artisan migrate --path=database/migrations/landlord --database=landlord

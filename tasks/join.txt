@@ -1,0 +1,26 @@
+1..join
+1..create table name chargeRouted 
+migration
+guestID_from
+ledgerID
+guestID_to
+2..in table guest add 
+is_join
+is_connected
+join_to //that have the room master
+.......................................search in guest and profile in indevidoul controller
+1..py mopile number
+2..name
+3..roomNumber
+4..idNumber
+5..date in or out
+6..or all
+..................blacklist
+add the profile that blacklist must be in landloard and tenant
+migration
+profileId
+ID_NO
+modileNumber
+blackLest reson text
+created_by string() 
+user_id in tenant only relation by user

@@ -1,0 +1,33 @@
+..avilabity function
+...1..check in guest table checked_in true or false and is_rseervation tru or false and reservation statuse (CNF:conferm NCF:non conferm):not avelable (is_cancel true  and res_status=CNC):room is avilable
+  2..if is_reservision = true and statusstatuse (CNF:conferm NCF:non conferm) will be  not avelable
+3..(is_cancel true  and res_status=CNC):room is avilable
+.......................
+2..return
+1..return by count of room conunt for each roomtybe ...(startDate , end date,return) and after this if( is_checkout ) if true so is avilable 
+befoe 
+2..send roomtybe and return avillable count for this room  (startdate,endDate,roomTybe,,return)
+3..all room for the avilabletime (startDate,enddate,roomTybe if get serch in rom tybe,return)
+4..send number of room return status for the range time sended (return) 
+............
+checked_in if true 
+is_reservation false
+checkout false
+...........................finish
+
+1..check oord model startDate and end date and return if return true mean is available
+2..return number of each roomType that available
+3..validation
+startdate: must be in now and future
+end_date:startDate and future
+1..add seed in room 500 rooms ok
+1..room in update unique exept the same value
+1..fake guest related with room if in room fo_status =OC in this case related with gest count will be same room number that fo_status = OC 
+2..fake data in oorder if in room fo_status=OO or OS related with room
+................doing
+
+
+
+.......................not finish
+
+2..when create room the room_type_id will add by system depending on rom_type_id in room table

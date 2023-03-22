@@ -1,0 +1,44 @@
+...............................................text have
+1...stub:publish
+2..upsert
+3..updateOrCreate
+3.1..firstOrCreate
+4..isDirty
+4.1..wasChanged
+4.2..>wasRecentlyCreated 
+5..opserver
+.................................................................................................
+https://laraveldaily.com/lesson/eloquent-the-expert-level/customize-model-template-stubs
+...video
+1..how to chang model structure creating 
+1.1..php artisan stub:publish
+1.2..will creat folder that have standard
+1.3..go to stubsfolder\model_stub
+change any thing
+4..to update data from excel
+4.1..$modelNAme::upsert([search => value of search,columnName => value you want update],
+[column you want updated for it]
+);
+5..firstOrCreate
+6..updateOrCreate
+.................................
+https://laraveldaily.com/lesson/eloquent-the-expert-level/wascreated-isdirty-model-changed
+..video link
+1.. if you want check the request update in data before saving update or not use isDirty function in opject
+$user->name = 'any think to update for it';
+$user->isDirty('name')? updated:not updated;
+$user->save;
+1.1..if you want check data saved in DB or not use $opject->wasChanged('coulmnYouWant');
+$user->wasChanged('any column')? 'changed' : 'not changed';
+2..if you want check the data created or not
+$user=Model::create([any thing]);
+$user->wasRecentlyCreated ? 'created' : 'not Created';
+............................video
+https://laraveldaily.com/lesson/eloquent-the-expert-level/model-observers
+....
+1..opserver class: the class that for spasifec model you can write in it the action you want done after
+use this model in create or update
+1.1..create observer for spasific model
+php artisan make:observer ModelNAmeObserver --model=ModelNAme
+
+

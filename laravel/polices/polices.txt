@@ -1,0 +1,42 @@
+https://www.youtube.com/watch?v=GWp1E_dGC00&ab_channel=CodingwithPixelFix
+https://www.youtube.com/watch?v=iTu-zf1x9K0&t=68s&ab_channel=AlgorithmAcademy
+...polices
+1..
+php artisan make:policy anynamePolecy --model=modelName
+2..got to authServicesprovider->$polices
+modelName::class => policesName::class
+3..go to your policey
+info
+controller method -----policy method
+index ---- viewAny
+show -----view
+create ---create
+store --- create
+edit ---- update
+update --- update
+destroy -- delete
+4..go to model
+4.1..add function that detrimain the permissions and add function tor make relation with bermission
+public function permiision()
+{
+return $this-<belongTo(Permission::class)
+} 
+public function hasPermission($permissionName)
+{
+	return Str::lower($this->permiision->name
+}
+5..go to your polices->any function that you want liek viewAny(modelName $model)
+return $model->hasPermission('permittinName');
+6..to use this polices you can use it by 3way
+6.1..way one in function itselfe like in controller
+public function index()
+{
+$this->authorize('viewAny',modelName::class)   //viewAny is polices functio you want use it
+}
+6.2..the wany number two put the authorize polices in constructor to give each function his polices function
+public function __construct()
+{
+	$this->authorizeResource(modelName::class);
+}
+6.3..therd way put it in route 
+Route::anything()->can('policesFunctionName',modelName::class)

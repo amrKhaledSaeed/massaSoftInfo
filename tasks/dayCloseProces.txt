@@ -1,0 +1,159 @@
+1..migration to two table 
+2..store 
+//*****************transaction table
+  'hotel_date', :get it from gloable variable
+  'sys_date',   :now date
+........................amr*******************************************done
+  'guest_ledger' = $res , : function
+{
+ request :date
+
+$res = select from transaction where hoteldate = request->date where is_void=0 :get total charge_amount for request->date and total payment_amount
+and charge amount- paymentamount
+
+}
+................................amr************************end done
+
+//********************************
+
+
+//***********************in room table
+        'total_room', ...count all rooms......done
+        'os_rooms',...done add fo_status paramiter *************done
+        'oo_rooms',....done
+        'oc_rooms',...done
+        'va_rooms',...done  
+*************************************waffa............................done..........................marging************done
+        'comp_rooms',....if request =COMP put $res .......$request->way_of_payment
+        'house_use_rooms', ...if request =HUSU put $res..$data->way_of_payment
+function request in:'COMP','HUSU'{
+$res = get select from guest all rooms where way_of_payment=COMP or HUSU where is_checked_out =false where is_reservision=false wherer is_checked_in=true
+get count of rooms;
+}
+*************************************waffa..............................done
+//***************************
+
+//************************* guest table
+        'act_chkin_rooms',....done
+        'act_chkin_pax', , in table guest count sum number of bax where indate=hotelDate *******************************done
+        'act_chkout_rooms',....done
+        'act_chkout_pax',...in table guest count sum number of bax where outDate=hotelDate********************done 
+****************************************......................................................................done
+        'guest_group', ....
+{
+select fronm table guest where in_date <= $request->date out_date >= $request->date is_groub=1  is_cancel =0   get scount
+}
+***********************************
+        'res_today', .....done created_date*************************************************************************************************************************************************convert date
+        'res_cancel',.....done
+        'res_voshow_rooms',....not now
+        'res_noshow_pax',....not now
+        'early_chkout_rooms',.......not now
+        'early_chkout_pax',......not now
+        'walkin_pax' .............not now
+**********************
+	'day_use_rooms',.....function get all() and one get count her and another get sum of pax.........................................................done
+{
+ select fronm table guest where in_date and  out date = hotel date or $request->date and is+checked_in = true and is_reservision= false get count
+
+}
+*********************
+********************
+ 	'expt_in_tmrw_rooms', ..expected in tmorow ..************************************************************************************************done
+{
+ select fronm table guest where in_date = tmorw that hotel date+1 or $request->date +1  where is+checked_in = false  and is_reservision= true and is_cancel =0  get count
+
+}
+
+**********************
+****************************************************************************************************************************************************************************done
+        'expt_in_tmrw_pax',
+{
+ select fronm table guest where in_date = tmorw that hotel date+1 or $request->date +1  where is+checked_in = false  and is_reservision= true and is_cancel =0  get sum number of pax
+
+}
+
+****************************************************************************************************************************************************done
+
+        'expt_out_tmrw_rooms', ... function to get all and another to get count and another to get number of pax
+{
+ select fronm table guest where out_date = tmorw that hotel date+1 or $request->date +1  where  is_cancel =0  get count
+
+}
+
+//************************
+        
+        'pre_bill_chrg',**************not now
+        'dcl_balance',***********wafa....done
+        'cl_transfare',********wafa...... 0 not now
+        'cl_payment',*********wafa......done
+*******************************************************************************************************************************************************done
+        'guest_inhouse_pax',....   
+{
+ select fronm table guest where in_date <= $request->date out_date >= $request->date  is_cancel =0   get sum no_of_pax :number of pax 
+
+}
+***********************
+        'no_of_vip',.................not now
+***************wafa...............................done
+        'extended_rooms',......wafa...
+{
+	select from extendes_stay where created_at= $request->date get count
+}
+***************************wafa...................done
+***************************wafa...................done
+        'extended_pax',
+{
+	select extend stay where created_at= $request->date get count get sum number of bax for all guests each guest has sum alone 
+}
+*************************wafa.......................done
+
+        'walkin_rooms',......not now
+**********************************************************************************************************************************done
+        'day_use_pax',
+{
+ select fronm table guest where in_date and  out date = hotel date or $request->date and is+checked_in = true and is_reservision= false get sum of pax 
+
+}
+*****************************
+        
+********************************************************************************done
+'expt_out_tmrw_pax', from function to get all use it 
+{
+ select fronm table guest where iout_date = tmorw that hotel date+1 or $request->date +1  where  is_cancel =0  get count
+
+}
+*************************
+**************************************************************************************************************************************************************today
+*************************************************amr************************done
+'total_fb' = $res,
+total_rate_room' = $res,
+'total_others' = $res,
+'ind_rate' =$res,
+
+ request->ledgert category_id that in table ladger
+$request->date
+        $res =from transaction where('hotelDate',$request->date) selectt ledger_id whereHas('ledger'function($q){
+          q->where( category_id=request->ledgert)-> 
+} ) ->sum('chargeamount')  //table  ledger_id  ledger_category:relation with ledger from table ledger)
+********************************************amr*******************done
+
+
+********************************wafa*************************DONE
+        'total_taxes',
+$request->date
+$res= transactionTaxces table ::    whereHas('Transaction' ,function($q){
+ $q->where(hoteldate',$request->date)
+})->sum('amount');
+
+**********************************wafa*******************done 
+
+************************************************amr***************done
+        'total_paymants',
+$request->date
+$res= transaction table where('hotelDate',$request->date)->where(''payment_amount','>',0)->sum('payment_amount');
+**********************************amr********************done
+
+        'group_rate',********not now
+**********************************************************
+laravel daily
