@@ -1,12 +1,14 @@
-...............................................text have
+...............................................course index 
 1...stub:publish
-2..upsert
-3..updateOrCreate
-3.1..firstOrCreate
-4..isDirty
-4.1..wasChanged
-4.2..>wasRecentlyCreated 
-5..opserver
+2.. upsert
+3.. updateOrCreate
+3.1.. firstOrCreate
+4.. isDirty
+4.1.. wasChanged
+4.2.. wasRecentlyCreated 
+5.. opserver
+6..accessors
+6.1..mutator
 .................................................................................................
 https://laraveldaily.com/lesson/eloquent-the-expert-level/customize-model-template-stubs
 ...video
@@ -36,9 +38,50 @@ $user->wasRecentlyCreated ? 'created' : 'not Created';
 ............................video
 https://laraveldaily.com/lesson/eloquent-the-expert-level/model-observers
 ....
-1..opserver class: the class that for spasifec model you can write in it the action you want done after
+5..opserver class: the class that for spasifec model you can write in it the action you want done after
 use this model in create or update
-1.1..create observer for spasific model
+5.1..create observer for spasific model
 php artisan make:observer ModelNAmeObserver --model=ModelNAme
+5.2..define the observer in eventServicesProvider in tow way
+5.2.1.. got to eventServicesPronider->boot
+ModelName::observe(ObserbeNAme::class);
+5.2.2..or you can do this in eventServicesPronider
+protected $observers=[
+	ModelName::class => ObserverNAme::clas
+];
+5.3.. if you want make code execute in DB after run create or update
+make the function in observer class called
+creating or updating
+..................................................VIDEO.................................
+https://laraveldaily.com/lesson/eloquent-the-expert-level/attributes-accessors-mutators
+6..accessors and mutators ..poth called attrbute in laravel 9
+6.1..accessors : used if you want change the value when getting the data of setting the data
+6.1.1..muttator : used if you want change the value when saving the data of setting the data
+6.2.. go to model to create accessor to can access it after caled it
+public function createdDiff(): Attrbute //name of function must be functionNameDiff,:Attribute is the return of function
+ {
+	return Attribute::make( //must be define Attribute 
+	get: fn() => $this->created_at->diffForHumans();//this function to get the time that this filed created_at untile now like created from 5 mint
+           //diffForHumans() : carpon function to calculate the time from creaqted_at to now
+);
 
+}
+6.2.1..to get this accestor data can you call it by
+$user->created_diff; // created:the first in function name that name is createdDiff() , _diff:is the second  
+6.3..to create mutator funtion to make change of data befor save it
+public function name(): Attrbute // name():must be column Name you want changes it 
+{
+	return Attrbute::make(
+	set: fn($value) => ucfirst($value) //here the $value:is function name taht mean the columnName
+	//ucfirst($value): function to make the first char is capital
+	);
+}
 
+6.3.1..you can use  mutator to stoped exception of date error formate by
+public function birthDate(): Attrbute //the coulmn name birth_date = in model birthDate
+{
+  return Attrbute::make(
+	get: fn($value)=> Carbon::createFromFormate('Y-m-d',$value)->format('m/d/Y'), //for get th date as user enter it
+	set: fn($value) => Carbon::createFromFormat('m/d/Y',$value)->format('Y-m-d') //for save the date as DB formate
+);
+} 
