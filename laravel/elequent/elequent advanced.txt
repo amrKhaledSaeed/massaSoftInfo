@@ -38,6 +38,17 @@
 18..hasManyThroph: if you want make nested relation in model
 19..has('relatioName'),whereHas(),withWhereHas
 19.1..search whereNot(),whereBelongsTo(),whereRelation()inmodel instead of whereHas inquery,
+20..latestOfMany()
+20.1..oldestProject()
+20.2..ofMany('id', 'max')
+20.4..i can put condition in orderby
+20.5..add acondition in ordrBy and where
+21..if i want use spatie package
+22..package if you want make search in morethan one model 
+22.1..package1 from spate called laravel searchable
+22.2..package2 called laravel cross elequent search
+23..package called elequent has many deep : is package for deep nested realtin in model
+24..package called parental : to make speret model extend from one model like model user can be in model admin and model manager each model has one table is user
 .................................................................................................
 https://laraveldaily.com/lesson/eloquent-the-expert-level/customize-model-template-stubs
 ...video
@@ -307,3 +318,55 @@ withExist('relationName')
 $opject->relationName_exist
 .........................................VIDEO
 https://laraveldaily.com/lesson/eloquent-the-expert-level/ofmany-latestofmany-oldestofmany
+20..if i have hasMany relationship but i want latest only i can do this by ; all in this episot if you want get one record from relationship
+public function project()
+{
+return $this=->hasOne(Projrct::class);
+}
+public  function latestProject()
+{
+ return $this->hasOne(project::class)->latestOfMany();
+}
+20.1..the opesit of latest is oldestOfmany() to get first in model
+public function oldestProject(){
+	return $this->hasOne(Project::class)->oldestOfMany();
+}
+20.2..if you want add column to order by in model you can use ofMany('id', 'max')
+public function someOrderProject()
+{
+	return$this->hasOne(Project::class)->ofMany('id', 'max'); // order by max of id
+}
+20.3..if you want add column to order by in model you can use ofMany('id', 'max')
+public function someOrderProject()
+{
+	return$this->hasOne(Project::class)->ofMany('id', 'min'); // order by minmum of id
+}
+20.4..i can put condition in orderby like if max id is the same orderby another column like max createdby
+public function someConditionProject()
+{
+	return $THIS->hasOne(Project::class)->ofMany(['id' => 'max', 'updated_at' => 'max'])
+} 
+20.5..add acondition in ordrBy and where
+return $this->hasOne(Project::class)->ofMany(['id' => 'max', 'creted_at' => 'max'], function($q){
+	$q->where('name', 'like', '%somthing%');
+});
+**1..if i want get opject from model to query
+$query=Model::query();
+...............................................................VIDEO
+https://laraveldaily.com/lesson/eloquent-the-expert-level/spatie-query-builder-eloquent-filter
+21..if i want use spatie package 
+21.1..spatie filter
+..............................................................VIDEO
+https://laraveldaily.com/lesson/eloquent-the-expert-level/spatie-laravel-searchable-cross-eloquent-search
+22..package if you want make search in morethan one model 
+22.1..package1 from spate called laravel searchable
+22.2..package2 called laravel cross elequent search
+.....................................................................VIDEO
+https://laraveldaily.com/lesson/eloquent-the-expert-level/hasmanydeep
+23..package called elequent has many deep : is package for deep nested realtin in model
+............................................................VIDEO
+https://laraveldaily.com/lesson/eloquent-the-expert-level/parental-tighten-relationship-self
+24..package called parental : to make speret model extend from one model like model user can be in model admin and model manager each model has one table is user
+............................................................VIDEO
+https://laraveldaily.com/lesson/eloquent-the-expert-level/cascade-soft-deletes-children
+25..package cascading soft deletes : 
