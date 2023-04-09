@@ -1,0 +1,13 @@
+precharg 
+1..add migration
+2..function of store
+2.1..hotel_date =  from rs_rate_days->day_date
+2.2..sys_date = now
+2.3..guest_id = from rs_rate_days->guest_id
+2.4..ledger_id = from rs_rate_days->rate_id get ledger_id where(rate_id = rs_rate_days->rate_id) //rate_id = id from rate_code
+//IF RATE_ID = NULL GET IT FROM TABLE GUSETS
+2.5..amount: (rm_rate from res_rate_days -  price (from table meal or mealpackage))
+//rm_rate from res_rate_days: (rate= reate will added in ledgers)  + price from table meals or meal_packages
+2.5.1..recreate all again in newRow and all data as same put 
+amount =price (from table meal or mealpackage)
+2.6..transaction_collection: the same id of first insert for this guest will change tommorow
