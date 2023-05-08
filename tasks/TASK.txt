@@ -1,3 +1,29 @@
-TABLE ONE TO MANY
-profile reservision
-many profile one guest
+....................................................................................................................................done
+1..creat widow for each room in guest table in function groupReservision and payMaster creation will be create widow 
+all invoice number =null
+windowName= 'master window'
+2..add column in table  ledgers called defult_routing will be defualt =0
+3..create function in chargerouted will be store to defalteRouted
+not need ledger_id
+need guest ud from and to
+and window from to
+is_join = 1 
+3..with each room creation create windw and call creation chargeRoutedStore 
+guest_id_from
+guest_id_to
+ledger_id
+......................................................................wafa tasks
+report
+1..function
+request in_date out date
+get between in_date and out_date
+ or 
+and  outdate >= in_date
+
+with rate_code  
+
+2..
+room_change get
+request
+hotel_date between start and end
+with user

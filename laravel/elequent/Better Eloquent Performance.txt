@@ -1,0 +1,49 @@
+1..not use Model::all()
+2..if you want only count from relation you can use withCount('relation')
+4..$post->load('relationName')
+4.1..if you want call the relation in each call you can do it in the model
+5..Laravel N+1 Query Detector
+5.2..to prevent lazy query
+..................................v1 What is N+1 Query: Typical Example, Debugbar and Eager Loading...........................................
+https://laraveldaily.com/lesson/eloquent-performance/n1-query-debugbar-eager-loading
+1..not use Model::all();
+becase it more select it will select the model and all relations
+1.1..to solve that you can use eager by use with and get
+Model::with('Relation')->get();
+..............................................................v2 03/21 N+1 Query: "Deeper" Examples - Packages and Count..................................
+https://laraveldaily.com/lesson/eloquent-performance/n1-query-examples-packages
+2..if you want only count from relation you can use
+withCount('relation')
+2.1.and don t use 
+$opject->relationName()
+2.2..use 
+$opject->relationName
+.......................................................
+1..laracraft-tech package to handel query by date
+https://github.com/laracraft-tech/laravel-date-scopes
+............................................................v3 Eager Loading with load() and $with.....................
+https://laraveldaily.com/lesson/eloquent-performance/eager-loading-load-with
+3..spatie media package for handel images 
+3.1..to inhance performance you can add HasMedia in model and use with media in query
+3.2..in model use InteractWithMedia;
+.......................................................................v4 ..Eager Loading with load() and $with
+https://laraveldaily.com/lesson/eloquent-performance/eager-loading-load-with
+4..if you inhance select that use all() withoud delete it you can do this
+$post = ModelName::all();
+$post->load('relationName');
+4.1..if you want call the relation in each call you can do it in the model
+protected $with = ['relationName'];
+..............................................................v5..05/21 Detect and Prevent N+1 Query: With Package or Laravel 8.43+
+https://laraveldaily.com/lesson/eloquent-performance/detect-prevent-n1-query
+5..Laravel N+1 Query Detector
+is abackage to make exception if you use lazyLoaded
+5.1.. --dev
+mean setup localy enviroment not production
+5.2..to prevent lazy query
+https://laravel-news.com/disable-eloquent-lazy-loading-during-development
+5.3..if you want prevent lazy loaded in all model you can use in appServiceProvider->boot()
+    Model::preventLazyLoading(! app()->isProduction());
+........................................................................................v6
+https://laraveldaily.com/lesson/eloquent-performance/with-withcount-ram-memory
+6..to get dat an count
+use withCount()->get()

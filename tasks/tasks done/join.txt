@@ -8,6 +8,13 @@ guestID_to
 is_join
 is_connected
 join_to //that have the room master
+........................................................new..................not done
+3..add window_id_from...............done
+4..add widow_id_to..................done
+5..migration for windows....................................done
+5..check all crud in ChargeRoutedController..............done
+5.1..in function store add widow_id_from and to.........done
+.........................................................end new
 .......................................search in guest and profile in indevidoul controller
 1..py mopile number
 2..name

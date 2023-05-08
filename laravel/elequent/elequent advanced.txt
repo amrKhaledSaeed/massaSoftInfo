@@ -170,12 +170,12 @@ https://laraveldaily.com/lesson/eloquent-the-expert-level/local-global-scopes
 12.2.1..first will use local scop  
 12.2..you can do this by put query in function into model
 12.2.1..go to model and write
-public function scopeName($query)
+public function scopeFunctionName($query)  //function name must be start by scope and first char after this must be capital 
 {
-$query->where('is_completed' , true);
+return $query->where('is_completed' , true);
 }
 12.2.1.1..if you want use this scope can you it like this
-ModelName::scopeName()->get();
+ModelName::scopeName()->get(); //the scope name must be the same but wihout scope and the firest char convert it to lower case
 12.2.2..you can write function in model that take a pramter like this
 12.2.2.1..go to model and write
 public function scopeName($query,$anyVariaple)
@@ -189,7 +189,7 @@ public function scopeName($query,$anyVariaple)
 12.3.1.2..you can call function that it in model like this
 public function booted()
 {
-static::addGlbalScope(new NameOfGloableScopeModelClassName());//class name thaat created here 12.3.1.3
+static::addGlbalScope(new NameOfGloableScopeModelClassName());//class name that created here 12.3.1.3
 } 
 12.3.1.3..create model called nameScope and make this
 class Name implements Scope // and defin scope

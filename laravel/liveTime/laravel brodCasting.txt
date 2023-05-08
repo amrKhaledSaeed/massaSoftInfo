@@ -1,0 +1,94 @@
+https://www.youtube.com/watch?v=VWnkgKP0-dE&ab_channel=Smarian
+.................................................................
+1..in env
+BROADCASTING_DRIVER=redis
+REDIS_PREFIX=null
+2..install redis
+composer require predis/predis
+3..in config\database.php->redis
+->client => env('REDIS_CLIENT', 'predis')
+4..php artiasn make:event EventName
+5..go to EventName
+class calssName impement ShouldBroadCast //to broadCast immidetly mean realtime
+6..conver privateChanel to Chanel
+//privateChanel mean chanel to user that loged In
+//chanel mean any user
+7..->broadcastOn()
+return new Chanel('ChanelName');
+8..create
+public function broadcastAs()
+{
+return 'lesstenName'; //the lesssten 
+}
+9..creat the data will be return in event
+public function broadCastWith()
+{
+return [
+'message' => $this->message;
+];
+}
+10..go to class and define variable and define it in constructor
+public $message;
+public function __construct($message)
+{
+$this->message = $message;
+}
+11..install laravel-echo-server for resev Data -g:to be general in any terminal //this server will run in my machine to run reaiTime so i need install client to run in proser or jsclient
+npm install -g laravel-echo-server
+11.1..run this
+laravel-echo-server init
+11.2..to selve error that occure  run this
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+11.3..laravel-echo-server init
+11.4..
+yes
+enter
+redis
+localhost
+http
+no //generate clientId for API
+no //setup domain access
+enter //to chose defalte file name that will saved data in it
+11.5..will get file that created called  laravel-echo-server.json
+11.6..install cilent to run in proser or jsClient
+11.6.1..
+npm install
+npm instal laravel-echo
+npm install socket.io-client
+11.6.2..if i go to webpack.mix.js
+->mixjs(here you found file that will compile when js files compile)
+12..go to resource\js\app.js and write this
+import Echo from 'laravel-echo';
+window.io =require('socet.io-client')
+window.Echo = new Echo({  //to have instence from laravel echo
+broadcaster: 'socket.io', //ican use pusher her but pusher have limmite
+host : window.location.hostname + ":6001" //this is host//window.location.hostname :to get the hostName//":6001" :this is the port that it in file laravel-echo-server
+});
+
+12.1..to compile this file in public js run this so this will create file in css and another in js if i use npm run watch will compile this file automatecly
+npm run dev
+13..got to view that you want use it to lissten events and write this befor colse the body and call
+<script src="{{ asset('js/app.js') }}"></script>
+13.1..go to head and add meta csrf becase the laravel echo include csrf
+<meta name="csrf-token" content="{{csrf_token() }}">
+14..to run laravel echo server to lesstin
+laravel-echo-server start
+15..to make view lesstin and join laravel-echo server go to view  and before close body wite this
+<script> 
+window.Echo.chanel('chanelName')	//Echo from app.js->window.Echo //chanel that will lestin for it
+.listen('.lestinName',(data) => {  //must be put the dote before LestinName //$data this is the data that returned from message
+consol.log(data); //this is the plase that will show the message her i show it in consol i can show it in any place
+})  
+</script>
+15.1..after this if make refresh in web will get in terminal for laravel-echo server say to you lestining
+16..go to config\app.php
+delete commite from BroadcastServiceProvider::class
+17...go to routes\chanels.php and write to make authentecation or not here we make without auth
+Broadcast::chanel('chanelName',function(){ //if you want make authrization use function($user,$id) //
+return true //return true to make any guest to i not use auth
+});
+18..to triger lestiner
+18.1..
+use App\Event\SendMessage;
+18.2..go to the place you want make triger for lestiner and write
+event(new sendMessage('the message'));

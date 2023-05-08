@@ -1,0 +1,40 @@
+last7days...........done
+YearToDate .......all from start year untill request->date............done
+MonthToDate.....all from start month untill request->date...........done
+LastYeatMothToDate...all from request->year untill requestDate.......done
+LastYeatMothToDate...all from request->month untill requestDate......done
+................................................................................done
+seeder for Groubpaymaster roomType
+rm_type_code : GPM :use in search
+name:group PayMaster
+:loc:غرفه رئيسيه
+def_pax:0
+prise:0
+pax:0
+num_of_room:0
+room_type_rentable :false
+sortOrder:0
+scth:13
+def_rate_code:null
+...................................................................
+in table guest
+created_inhousGuest_at : datetime update nuulable.......done
+will be chicked_in date ................................done
+will add in checked In function .................................................done
+created_inhousGuest_at: now.................................................done
+created_inhousGuest_at: hotel date concatinate nowTime .............................................................witting hotel date
+....
+check_out_at:dateTime Update nullable............................done
+checkout_by : nullable update....................................done
+
+ 
+
+
+
+*****************************************************************************************task waffa********************************
+1..charge:
+Accomodation: is category of ledger
+1.1..sum('charge_amount') groupBy Ledger that into category
+the sum for each ledger 
+2..charge
+3..payment

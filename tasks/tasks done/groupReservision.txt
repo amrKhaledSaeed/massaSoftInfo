@@ -1,0 +1,72 @@
+all
+1.groub reservsion reservision 
+2..each groub must have bayMaster(isPM):it magec room will be room master
+2.1..is damy
+2.2..groub coud equel
+3..request have all rooms and data 
+4..first will make profile
+5..in profile no_id =groub_coude
+5.1..groob profile dont add in land loard
+.......
+1..add all rooms in 
+2..gropcoud = max groub coud +1
+3..put groupcoud in no_id in table profile
+4..in table guest add all guest that have all rooms and all have the same profile ID
+5..in table guest newGuest called newPayMaster add data and ispm=true : ispm:is pay master
+rm_rate=0
+number_of_pax=0
+profile_id as same of group
+room_type = add room type in roomType table and add id here
+when any stor any groub must be add room master
+6..after add will make join with roomMaster
+.........................................................
+**add column group_coude in table profile
+**if group_coud is exist get max in profile and update this groupcode to  max
+reservision with 20 rooms
+data
+1....count 5room that in roomType 1
+2..count10room roomttype2
+3..count 5room romType3
+........................................
+1..email in guest_profile : nullable ..done in DB
+2..phone :nullable ...done in DB
+3..address:nullable ..done in DB
+4..city
+5..language
+date_of_birth: defalte date = today
+6..group_code : must be integer
+
+7..make seeder add payMaster room type that will store in table if create new hotel...............later
+....................................................................
+1..is dumy =0 in all rooms but 1 in payMaster roomType
+2..reserviosn = 1 
+3..is_pm =0 in all rooms but 1 in payMaster roomType
+4..is_group = 1
+5..add in table guest  country_id..............................................waiting
+
+
+
+
+
+
+
+.....................................................................................................task2
+1..creat widow for each room in guest table in function groupReservision and payMaster creation will be create widow 
+all invoice number =null..............................................................done
+windowName= 'master window'.............................................................done
+2..add column in table  ledgers called defult_routing will be defualt =0...............done
+3..create function in chargerouted will be store to defalteRouted
+not need ledger_id
+need guest id from and to
+and window from to
+is_join = 1
+ get all ledger where  defult_routing =1 
+and create for each ledger create chargeRouted
+windo_from = window_id for room in guest table that created with group reservision
+windo_to= payMaster window id 
+guest_id_from=  guest_id room in guest table that created with group reservision
+guest_id_from=  payMaster guest_id
+3..with each room creation create windw and call creation chargeRoutedStore 
+guest_id_from
+guest_id_to
+ledger_id

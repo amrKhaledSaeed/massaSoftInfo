@@ -1,0 +1,66 @@
+palance task in generalRepository branch github
+......................
+in guest controller
+request guest_id required
+	window_id optinal
+2..
+palance=from sum_of charge_amount - sum of payment amount from transaction  
+
+usable in or api
+...............................................task to
+in function checkout
+1..i can make check out for one window
+so to accept request window_id
+request guest_id required 
+	window_id [] required
+1.1..get count of window for this guest
+1.2..if(window_id more than one)
+1.3..invoice number max()+1
+................................................................done
+
+
+
+1.palance must be (palance = 0) else stop checked out
+2..create invoice
+3. by guest_id and window id get invoice number and put invoice number inside window
+4..check window_id have invoice number or not if not stop check out
+4.1..if all window checked out 
+go to guest table
+4.1.1..is checked_out =1
+4.1.2..out_date =hotelDate concatenate time of now...........................................................................whiting...do it
+4.1.3..cheked_out_by = auth
+4.1.4..is_checked_in = 0
+
+5..and go to table room
+5.1..fo_status = VA
+5.2..HK_status = DI
+6..delete precharge by guest_id
+
+return true or false
+................
+return the window _id that checked_out case not all checkedOut
+
+
+.........................................done
+in general repository
+1.4..add table invoice
+id,guest_id,window_id,invoice_number,total_roomCharge,total_fb_charge,total_other_charge,total_payment,user_id,total_taxes
+...........................................................done
+1.4.1..function total_roomCharge
+transaction::where(guest_id ,request_guest_id)->where(''window_id,$request_widow_id)->where('ledger_cat',1)->sum('charge_amount)
+1.4.2..function total_fb_charge
+transaction::where(guest_id ,request_guest_id)->where(''window_id,$request_widow_id)->where('ledger_cat',2)->sum('charge_amount)
+1.4.3..function total_other_charge
+transaction::where(guest_id ,request_guest_id)->where(''window_id,$request_widow_id)->where('ledger_cat',!=,1,2)->sum('charge_amount)
+1.4.3..function total_payment
+transaction::where(guest_id ,request_guest_id)->where(''window_id,$request_widow_id)->sum('payment_amount)
+1.4.4..function  total_taxes = 0;
+...............................
+
+
+
+
+is_checked_in = 1
+Checked_out=0
+Fo_status= OC
+guest with windows
