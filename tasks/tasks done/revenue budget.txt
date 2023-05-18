@@ -1,0 +1,7 @@
+1..add table called months all month  
+id name name_loc
+2..seed all month en and ar
+3.. add table called padget
+id ,ledger_id,month_id,year,padgetAmount:double
+4..request
+ 

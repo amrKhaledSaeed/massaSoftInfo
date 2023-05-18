@@ -1,0 +1,12 @@
+taxes
+0..request startDate ,endDate ,tax_id optinal
+1..go toble transactioTaxes is relation with transaction
+2.sum of taxes where date from to ..and get details
+from table tranaction
+select from table tranaction all
+1..calc taxes from pivote transactionTaxes for each transaction
+2..calc total = from tranaction amountWitoutTaxes +   calc taxes 
+add it in general repository
+...return
+1..return sum only ->whereDate sended
+2..details transaction and calc total

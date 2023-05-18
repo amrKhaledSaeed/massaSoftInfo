@@ -1,0 +1,10 @@
+1..new reservision
+requuest firstName ,lasName, required
+mobile  nullaable
+2..add profile on profile number 1 by seeder
+3..store in guest 
+4..store request in more name by guest_id
+........................................................done
+add email in moreName....done
+2..add onlyName in same route reservision......done
+..............

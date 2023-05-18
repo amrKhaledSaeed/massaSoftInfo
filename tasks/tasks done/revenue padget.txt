@@ -1,0 +1,12 @@
+1..add table called months all month  ....done
+id name name_loc .........done
+2..seed all month en and ar......done
+
+
+3.. add table called budget ....done
+id ,ledger_id,month_id,year,padgetAmount:double .......done
+4..crud
+.........................................................................
+request as array
+
+ 

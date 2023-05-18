@@ -1,0 +1,60 @@
+https://www.youtube.com/watch?v=56dTEGYnIZk&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&ab_channel=ProfessionalCode
+1..redise use in que 
+1.1..redies use in caching
+1.1.1..caching data protection
+2..redis : database wiht no database
+it have in_memory data structure store : mean store your data in memory directly for data that use it but not changed morly
+2.1..different levels of on_disk persistent : to protect your data by take backup for your data cached
+2.2..redis cached data in memory in server 
+3..redies cache data in memory by: key : value 
+3.1..redies no install in sup domain so redies have 16 DB start from 0 to defind spacific db to one subdomain
+4..to install in windows
+https://riptutorial.com/redis/example/29962/installing-and-running-redis-server-on-windows
+4.1..open redis-server to run server
+4.2..open redis-cil
+127.0.0.1:6379 : 127.0.0.1 is host , 6379 is default port
+4.2.1..to check server wite this if show your message is run ok
+ping "anyMessage"
+4.3.1..install redis in your project
+composer require predis/predis
+4.3.2..
+5..go to env 
+5.1..change that
+CACHE_DRIVER=redis
+QUEUE_CONNECTION:redis //queue is if i send million email you can put emails in jop and this jop in queue to handel this number of data to inhance performance and protected your operation from time out
+5.2..go to config\database
+default => [
+'databse' => env('REDIS_CACHE_DB','0') // if your web work up multi db
+]
+5.3..go to config\queue.php
+5.3.1..default => env(''QUEUE_CONNECTION,'sync'), //sync:mean he will use local db will but job in local db
+.......................................video 6
+https://www.youtube.com/watch?v=CB5z2DnthCc&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&index=6&ab_channel=ProfessionalCode
+6.1..ran this command to use que you need this if you use druver sync not redis //if use redis not need this //this will create table job that put in it your jop untile execute it
+php artisan queue:table
+6.1.1..migrate new tables 
+php artisan migrate
+6.2..column queue is name of job onQueue('this name that in queue')
+.........................................................................video 7
+https://www.youtube.com/watch?v=zfVv9rH5cAQ&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&index=7&ab_channel=ProfessionalCode
+7.1..create command 
+php artisan make:command CommandName
+7.1.1 go to command created and give it her Name
+7.2..in function handel
+7.2.1..creat any action like get data from db and foreach of it
+//dispatchNow() :use if i want this jop fire now
+dispatch();
+7.2.2..creating job
+php artisan make:job JobNameJob
+7.2.3..go to app\jobs\yourFile
+in handel function
+write any code you want
+7.2.4..go to command file
+in handel function call the job by
+dispatch(new jobName($anyVariableWantToSend));
+7.2.5..go to job class
+and reseve variable in constructor
+and write your code in handel
+
+
+ 
