@@ -1,0 +1,27 @@
+  1..crud
+2..in store or update
+main_account_id : must be above of acount_level by 1 only
+.....................................................................................seeder for Guest 
+seeder of guest with conditions
+1..room_id,not repeat room_id of guest if checked_id =true.........done
+2..the guest.room->fo_status =VA...........done
+..........
+
+....................functions for chart of accounts
+account_level : function
+get level of parent from same table
+account_level =level of parent+1
+account_class = same class of parent
+is_transaction : function 
+where(level = last level from ChartAcountLevel table) 
+is_transaction = true
+else false
+................................................................................chart of account function ...account code column
+1..i have 5 level 
+1.1..in main level account code will be in 1,2,3,4,5,....9 tha max = 9
+1.2..in level one account_code will be brevious Account code concatinat number of degit from this level her 2 and jumb by ser_gab
+like 101,102,......,199 max = 199
+1.3..in level 3 if ser_gab =3 and 3 deget will be 101001,101003,101005,......101999   
+...........................in store...........................................done
+if(is_transactio = true)
+not store chiled

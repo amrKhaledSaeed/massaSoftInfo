@@ -1,0 +1,42 @@
+1..crud journal voucher for master and details in one api
+2.$request
+{
+"","" //all data of master
+"details":[
+{}
+{}
+]
+}
+3..master
+fyear = year of jv_date............................................done
+fperiod = month of jv_date but the month one diget like 1 ,2 ,...,12
+jv_type_id = relation from front..................................done
+jv_no = from jv_type table (last_serial+1)........................done
+mdescription = $request  //update it to be nullable in migration..done
+total_debit = request.............................................done
+toral_credit = $request...........................................done
+source_code = 'PMS'
+is_auto_jv = false; // to define false in manual if true mean automatic by system
+is_posted = false
+is_reserve = false
+creted_by = auth
+created_date_time = now;
+laste_update_user = null in creation will change it in update
+last_updated_date_time = null in update will be now
+posted_user = null 
+posted_date_time = null
+sys_ip = ip of pc
+.................................................................table jv_detail
+
+ fyear = year of jv_date
+fperiod = month of jv_date but the month one diget like 1 ,2 ,...,12
+jv_type_id = relation from request
+jv_no = from jv_type table (last_serial+1) will found it in variable from master table
+jv_srl = $request
+account_id = $request relation with chart ofaccount
+references = request
+description = request
+debit = $request......... required one of debit or credit 
+credit = $request.........
+...add
+

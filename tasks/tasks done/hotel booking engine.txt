@@ -1,0 +1,15 @@
+update all room_id of group reservision
+{
+"group":[
+{
+"guest_id":"1",
+"room_id":"2"
+
+},
+{
+"guest_id":"2",
+"room_id":"3"
+
+}
+]
+}

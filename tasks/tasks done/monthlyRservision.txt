@@ -1,0 +1,7 @@
+1..add in guest table column called res_type accept one char in:D,M,Y
+2..new function to reservision of monthly and year 
+the sam function of reserviision but in roomrate will be monthly nested of dayly
+each monthly of yearly put it in precharge the date will be same day of in_date but the change  will be month or year
+and all ather in reservision will be as same
+3..add in table settings def_ledger_id
+4..and use it if ratecode == null

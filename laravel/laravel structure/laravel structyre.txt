@@ -1,0 +1,26 @@
+1..form request
+1.1..to validate authorize
+...................................................v2
+https://laraveldaily.com/lesson/structure-laravel-projects/moving-validation-to-form-request-class
+1..form request
+1.1..to validate authorize
+public function authorize()
+{
+return GATE::allows('user_create'); // user_create :is a permission
+}
+1.2..id you want  check the validation request use in controller
+$request->validated();
+ModelName::create($request->validated());
+...............................................................v3...mutator
+https://laraveldaily.com/lesson/structure-laravel-projects/data-saving-mutator-or-observer
+3.1..in model you can define atrbute 
+protected function startAt()::Attrbute
+{
+return Attrbut::make(
+set:fn($value) => Carbon::createFormat('m/d/y',$value) //to accept thes form 
+->formate('Y-m-d') // to convert brevuse for to thes form when save in database
+);
+}
+............................................................v6...queues
+https://laraveldaily.com/lesson/structure-laravel-projects/dispatch-jobs-into-queue
+6..by create joub to call it in background

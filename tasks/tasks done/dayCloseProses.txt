@@ -1,0 +1,15 @@
+....day close proces
+1..expexted check out first api
+1.1...go to guest table where(out_date = hotelDate)->where(checkedOUt = 0)->get()...........done
+2...api extend stay
+$request = array of guest id
+2.1..function
+for of guest id and use extendStayFunction($guest_id,hotelDate->addDay());
+return true or false
+3..get expected check in
+3.1..go to guest table where(in_date = hotelDate)->where(is_reservision = true)->where(is_checked_in =false)->where(is_cancel = false)->get()
+4...api for noshow
+$request = array of guest_id
+4.1..for loop of guest_id and update in table guest (res_status = 'NSH')->(isCancel = true)
+
+

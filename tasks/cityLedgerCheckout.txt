@@ -1,0 +1,35 @@
+city ledger checkout
+...make seeder payment mood that have the name is cityLedger...............done
+1..function in guest inhous called city ledgerCheckout
+request guest_id , window_id
+1.1..check balance ..........done
+1.2..if balance = 0 call checkout function.........done
+1.3..if balance !=0  get from payment type where name of payment mode = cityLedger first->id of payment type
+1.4..call transaction controller->store
+   'guest_id' => guest_id
+                'room_id' => rooms,id',
+                'hotel_date' => cache,
+                'window_id'=>windows,id',
+                'payment_type_id' => payment type id,
+                'payment_amount' => balance,
+                'trans_type' => 'REC',
+                'recd_type' => 'P'
+                'description' => 'city Ledger Checkout',
+                'is_reservation' => '0',
+                'inc' => 0,
+1.5..call checkout
+1.6..call companyStatmenController::store
+  		'invoice_no'                 => 'required',
+                'guest_id'                   => 'integer|boolean',
+                'company_id'                 => from guest_id,
+                'trans_date'                 => 'hotelDate',
+                'trans_no'                   => from return of  transaction controller->store,
+                'trans_type'                 => INV
+                'ref_no'                     => from return of  transaction controller->store,
+                'description'                => 'invoice',
+                'debit_amount'               => 'balance',
+                'credit_amount'              => 0.0,
+                'created_by'                 => auth,
+                'paid_amount'                => 0,
+                'is_paid'                    => false,
+1.7..return true or false

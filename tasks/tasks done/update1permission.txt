@@ -1,0 +1,34 @@
+add two colmen in table tenant in landlord....................done
+1..is_atuo_close nullable boolean defalt 0...................done
+2..closeTime time dfalte 03:00...............................done
+................
+permission ...........
+
+function getPermissionBySubject()................done
+
+retun
+[
+{
+"subject":"reservation",
+"actions":["eidt","delete","Add","Print"]
+},
+{
+"subject":"guest",
+"actions":["eidt","delete","Add","Print"]
+},
+
+]
+.....................................................
+create function getUserPermission().......................done
+test availability function()...............................done
+...................................................................................................attachment
+1..creat table guest_attachment
+guest_id relation
+guest_profile_id nullable
+guest_attachment varchar
+2..create model
+2.1..create relation in model called guest
+3..creat function in DBGuestInhous called attachment
+4..call it function store if request has attachment 
+6..call it function update if request has attachment
+7..add it in formRequest  

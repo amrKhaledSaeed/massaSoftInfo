@@ -1,0 +1,47 @@
+...........direct bill............................................................done
+1..create profile for guest not real guest for direct bill
+2..add guest that have data to spesefy it is not real by seeder
+3..request all transaction request but the transaction accept payment tybe or ledger_id and amount required and the my request have the two so will call transaction at tow time
+the first will be for ledger_id    and second will be to bayment tybe
+..........
+if have ledger id
+requirde
+ledger_id : 8
+charge_amount: data
+payment_type_id : null
+payment_amount : null
+else
+if payment amount
+required
+ledger_id : null
+charg_amount : null
+payment_type_id : 1
+payment_amount : amount
+.....................................update in direct pill function
+request
+"ledger_id": 8,
+  "payment_type_id": 1,
+amount : 20000.00 //will send it tow time one as  "charge_amount" and time tow as "payment_amount"
+"description": "Example Description",
+...........and the this data will get it 
+  "guest_id": 1,...............done
+  "res_id": null,.............done
+  "room_id": 2, // will create it as dumy room by seeder..........done
+  "hotel_date": "2023-06-15",...................done
+  "window_id": , // the window of the guest that is directBill guest...........done
+  "trans_type": "Example Transaction", //at
+  "recd_type": "Example Received",
+  "ref_id": null,
+  "is_reservation": false,
+  "inc": true,
+..........................................................................................................................update retun
+return 
+transe number from transaction table for the payment only not ledger
+...................................................................................................availability 
+....remove time from request
+..............................................................locke update reservision
+1..add function LockeUpdateReserviosn..........................................................................................done
+................................................extrabedAndMeal............................................done
+in pivote function store to add extra in guest
+request 
+array of extras 

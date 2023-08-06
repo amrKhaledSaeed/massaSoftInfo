@@ -1,0 +1,17 @@
+in dayCloseProcess
+..create function StoreDayCloseSalse()............done
+run from CloseSalesController
+1..storeDate_of_charege
+2..StoreData_ofPayment
+
+
+function finalDayClose()
+1..run sore in DBDayCloseRecord.........done
+2.. run StoreDayCloseSalse...............done
+3..change hotelDate from Settings to add day and change it inside cache..........done
+4..add this function to auto............done
+.....................................................................................update in permission
+[
+{"action":"manage","subject":"all"},
+{"action":"edit","subject":"reservation"}
+]

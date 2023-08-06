@@ -19,7 +19,7 @@ destroy -- delete
 4.1..add function that detrimain the permissions and add function tor make relation with bermission
 public function permiision()
 {
-return $this-<belongTo(Permission::class)
+return $this->belongTo(Permission::class)
 } 
 public function hasPermission($permissionName)
 {

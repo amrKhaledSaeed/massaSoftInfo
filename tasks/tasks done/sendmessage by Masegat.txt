@@ -1,0 +1,3 @@
+.........send message in telephone by mesaageat
+1..documentation 
+https://msegat.docs.apiary.io/#/reference/operations/send-sms

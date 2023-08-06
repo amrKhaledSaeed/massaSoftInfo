@@ -22,6 +22,7 @@ composer require predis/predis
 5.1..change that
 CACHE_DRIVER=redis
 QUEUE_CONNECTION:redis //queue is if i send million email you can put emails in jop and this jop in queue to handel this number of data to inhance performance and protected your operation from time out
+QUEUE_CONNECTION:database //if i want use database to store logs all logs will be get it from confige\queue.php
 5.2..go to config\database
 default => [
 'databse' => env('REDIS_CACHE_DB','0') // if your web work up multi db
@@ -55,6 +56,44 @@ dispatch(new jobName($anyVariableWantToSend));
 7.2.5..go to job class
 and reseve variable in constructor
 and write your code in handel
-
+..................................................video 8
+https://www.youtube.com/watch?v=lD8OGsliEM4&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&index=8&ab_channel=ProfessionalCode
+8.1..go to config\loging
+8.1.1..the default log in stack :mean the all logs in one file and you can change it by change default
+that have anothe opthons like
+daily : mean logs for each day
+8.2..info('any thing') : to output in log file
+8.3..after write code in job you can call jop in command by 
+dispatch(new JobNameJob(variable that constructor will reseve it))->onQueue('queName')
+php artisan queue:work to run all queues //to run queue that have default name in laravel i i use onqueue will not run becase will use non default queue name
+php artisan queue:work to run all queues --queue=queueName1,queueName2,queueName3// if i want run queue not in laravel will run by arrangment
+8.4..if i use database for save logs 
+8.4.1..i have table called job that have column callled queue
+queue: that have name of queue and the default is default
+...........................................................................v11
+https://www.youtube.com/watch?v=U0vh2_BzE3A&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&index=11&ab_channel=ProfessionalCode
+11.1..helper functions
+11.1.1..create file and add your function in it without class
+11.1.2..go to composer.json->autoload and add
+"files":[
+"app\Http\Helpers\HelperName.php"
+],
+11.1.3..run this command
+php artisan dump-autoload
+or
+composer dump-autoload
+...............................................v12
+https://www.youtube.com/watch?v=_YGY4oGOCh8&list=PLCm7ZeRfGSP5CVYv0ABdApuYekWKcPNIT&index=12&ab_channel=ProfessionalCode
+12.1..to use redis instead of db can you go to env and conver to it
+QUEUE_CONNECTION=redis 
+REDIS_CLIENT=predis //add this from config/database 
+12.2..to run redis
+redis-cli
+12.2.1..to select database of sail that it no database 
+select 1 //mean select db number 1
+keys * //this all key in this database
+............................................................
+appId: d78029779225ca54
+key: 3364bcf59d4ffde3227d0e40a16a2198
 
  

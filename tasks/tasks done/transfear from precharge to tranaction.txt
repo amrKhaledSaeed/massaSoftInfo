@@ -1,0 +1,5 @@
+1..get from pre_charge where('hotelDate' = cache hotedDate)->get
+
+2..request array of collection and store it in tranactionTable
+
+3..after saving in tranaction delete this date from pre_charge

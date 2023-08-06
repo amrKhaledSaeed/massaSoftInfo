@@ -31,3 +31,16 @@ end_date:startDate and future
 .......................not finish
 
 2..when create room the room_type_id will add by system depending on rom_type_id in room table
+..............................................................................................................................................return of availablity
+HDate.....hotelDate
+DateHi....null
+total.....total for all room where defult_pax > 0........done
+arrival.....in_date = request->inDate...........done
+out........out_date = request->inDate...........done
+OC.......in table guest get count all room that between in_Date and out_date this data in guest where(is_canscel =0)(checked_out =0) .........done
+%.......oc/totalRoom*100
+VA......total - oc.........done
+Deluxe Room.........get from availablity roomtype day by day for all rom type..........done
+Superior..........
+premium suite.........
+ADR...................null

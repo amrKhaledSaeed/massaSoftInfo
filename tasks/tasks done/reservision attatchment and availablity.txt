@@ -1,0 +1,39 @@
+add two colmen in table tenant in landlord....................done
+1..is_atuo_close nullable boolean defalt 0...................done
+2..closeTime time dfalte 03:00...............................done
+................
+permission ...........
+
+function getPermissionBySubject()................done
+
+retun
+[
+{
+"subject":"reservation",
+"actions":["eidt","delete","Add","Print"]
+},
+{
+"subject":"guest",
+"actions":["eidt","delete","Add","Print"]
+},
+
+]
+.....................................................
+create function getUserPermission().......................done
+test availability function()...............................done
+..make api for finalDayClose function......................done
+...................................................................................................attachment
+..make api for finalDayClose function......................done
+1..creat table guest_attachment.........done
+guest_id relation.....................done
+guest_attachment varchar.............done
+2..create model......................done
+2.1..create relation in model called guest..........done
+3..creat function in DBGuestInhous called attachment....done
+4..call it function store if request has attachment .............in reservission api add file...if reservission as array must be send the key file in first only
+6..call it function update if request has attachment............done
+7..add it in formRequest.................done
+8..create function updateGuestAttachment.............done
+...................................................................................protect reservision by availablity
+protected reservsion by availablity ............done
+protected checkedIN availablity............done

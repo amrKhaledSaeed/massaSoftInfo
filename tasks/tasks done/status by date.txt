@@ -1,0 +1,50 @@
+1..request
+start_date req
+end_date req
+ room_id op
+room_type_id op
+....................
+query 
+rooms::where('def_pax' > 0)->get();
+foreach ($rooms as $room)
+{
+Guest::where(room_id = room_id)->where(is_reservision = true)->where(iscnsel = false)->where(date for one day)->count();
+return BL;
+else
+Guest::where(room_id = room_id)->where(is_checked_in = true)->where(checked_out = false)->where(date for one day)->count();
+return OC
+else
+OOcervice::where(room_id = RoomId)->(isreturn = false)->(date = one date)->select('type'); //OO Or OS
+return Type 
+else
+return VA;
+} 
+
+
+response
+{
+data:[
+room:{
+rmm_name:201,
+room_name_loc:201,
+statuses: [{
+'2023-06-12': 'OC',
+'2023-06-13': 'OC',
+'2023-06-14': 'VA',
+'2023-06-15': 'BL',
+}]
+},
+{
+rmm_name:201,
+room_name_loc:201,
+statuses: [{
+'2023-06-12': 'OC',
+'2023-06-13': 'OC',
+'2023-06-14': 'VA',
+'2023-06-15': 'BL',
+}]
+},
+
+
+]
+}

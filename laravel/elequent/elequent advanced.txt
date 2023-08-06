@@ -1,4 +1,4 @@
-...............................................course index 
+................................................course index 
 1...stub:publish
 2.. upsert
 3.. updateOrCreate

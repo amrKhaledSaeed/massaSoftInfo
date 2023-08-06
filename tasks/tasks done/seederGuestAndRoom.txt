@@ -1,0 +1,17 @@
+.............seeder for reservision....................................done
+1..creat another factory called reservision
+1..room_id,not repeat room_id of guest if checked_id =true 
+2..the guest.room->fo_status =VA..........
+3..in table guest is_checked_in =false
+is reservision = true
+check_out = false
+200
+...................................................................................update Guest And room
+1..put hotel Date =20/03/2023............done
+2..update in table room fo_status='OC' if(table Guest if is_checedIn = true &&is_reservision = false && checked_out=false) //fo:front of status......done
+3..update in table room fo_status='BL' if(table Guest if is_checedIn = false &&is_reservision = true && checked_out=false && in_date = hotelDate) //BL:Blouked..done
+4..update in table room fo_status='OO' if(table OOrdSetrvices if is_return =false && start_date <= hotelDate && oord_type = 'OO');
+5..update in table room fo_status='OS' if(table OOrdSetrvices if is_return =false && start_date <= hotelDate && oord_type = 'OS');
+.......................update in table guest
+1..update in table guest 50 row room_id = null if(table guest if is_reservision=true && is_checkedIn =false && is_checked_out = false );
+......................
